@@ -53,6 +53,38 @@ variable unique peut ainsi être résumée par des indices de natures différent
 
 #### 2.1.1 Indices de position
 
+Il rend compte de la **position** d'une variable dans l'intervalle des valeurs autorisées.
+
+La **moyenne** $\mu$ est la somme des valeurs divisée par leur nombre.
+
+$$
+\mu = \frac{1}{n}\sum_{i=1}^{n}{x_i}
+$$
+
+> :bar_chart: Parenthèse Excel
+>
+> fonction `MOYENNE(plage)`
+>
+
+La **médiane** est la valeur qui sépare la variable en deux parties de même effectif. 
+Concrètement, on trie les valeurs de la variable dans l'ordre croissant et on extrait
+la valeur à l'indice :
+- $(n+1)/2$ si $n$ est impair
+- $n/2$ sinon
+
+> :bar_chart: Parenthèse Excel
+>
+> fonction `MEDIANE(plage)`
+>
+
+> Contrairement à la moyenne, la médiane est peu influençée par des valeurs aberrantes.
+> Pour vous en convaincre, calculez la moyenne et la médiane de la variable Age du fichier
+> [L1-STAPS.xlsx](data/L1-STAPS.xlsx) et remplacer une des valeurs par 50.
+
+Enfin, le **quantile $Q_p$** correspond à la valeur qui sépare les $p\%$ de la variable. Si $p=50\%$, $Q_p$ correspond à la médiane.
+
+Les **quartiles** $Q_1$, $Q_2$ et $Q_3$ sont les quantiles correspondant respectivement à $25\%$, $50\%$ (médiane) et $75\%$.    
+
 #### 2.1.2 Indices de dispersion
 
 #### 2.1.3 Indice de forme
