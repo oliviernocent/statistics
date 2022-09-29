@@ -154,7 +154,8 @@ existe une **relation linéaire** (ou de proportionnalité) entre les deux varia
 #### 2.2.2 Coefficient de corrélation linéaire (de Bravais-Pearson)
 
 Le coefficient de corrélation linéaire $r(X, Y)$ entre les variables $X$ et $Y$ permet de
-quantifier la **force de la relation linéaire** entre les deux variables (ou à quel point le nuage de points est **proche de la droite**). 
+quantifier la **force de la relation linéaire** entre les deux variables (ou à quel point le nuage de points est **proche de la droite**).
+
 $$
 r(X, Y) = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} = \frac{ \frac{1}{n} \sum_{i=1}^{n}{ (x_i - \mu_X)(y_i - \mu_Y) } }{\sigma_X \sigma_Y}
 $$
