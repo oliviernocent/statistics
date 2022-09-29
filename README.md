@@ -102,6 +102,11 @@ $$
 e = \max_{i}{x_i} - \min_{i}{x_i}
 $$
 
+> :bar_chart: Parenthèse Excel
+>
+> fonction `QUARTILE(plage, quart)` avec `quart` égal à `0` ou `4` retourne le minimum
+> et la maximum de la variable contenue dans `plage`. 
+
 L'***écart interquartiles*** correspond à $Q_3 - Q_1$.
 
 L'***écart type*** $\sigma$ est la racine carrée de la moyenne quadratique des écarts par rapport à la moyenne.
@@ -116,7 +121,19 @@ $$
 c = \frac{\sigma}{\mu}
 $$
 
-#### 2.1.3 Indice de forme
+> Le coefficient de variation procède à une normalisation qui
+> permet de comparer les dispersions de deux variables avec des 
+> moyennes de différents ordres de grandeur.
+
+Ainsi, un couple d’indices de position et de dispersion permet de résumer sommairement une variable quantitative.
+
+#### 2.1.3 Boîte à moustache
+
+Il est courant d'utiliser une représentation graphique pour décrire une variable
+quantitative. [La boîte à moustaches](https://fr.wikipedia.org/wiki/Bo%C3%AEte_%C3%A0_moustaches) (ou boîte de Tukey) permet de fusionner plusieurs
+indices de position et de dispersion.
+
+![](img/box-whisker-chart.png)
 
 ### 2.2 statistique bivariée
 
