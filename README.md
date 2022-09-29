@@ -157,7 +157,7 @@ Le coefficient de corrélation linéaire $r(X, Y)$ entre les variables $X$ et $Y
 quantifier la **force de la relation linéaire** entre les deux variables (ou à quel point le nuage de points est **proche de la droite**).
 
 $$
-r(X, Y) = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} = \frac{ \frac{1}{n} \sum_{i=1}^{n}{ (x_i - \mu_X)(y_i - \mu_Y) } }{\sigma_X \sigma_Y}
+r(X, Y) = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} = \frac{1}{n \sigma_X \sigma_Y} \sum_{i=1}^{n}{ (x_i - \mu_X)(y_i - \mu_Y) }
 $$
 
 Ce coefficient est compris dans l'intervalle $[-1, 1]$
@@ -170,11 +170,57 @@ Ce coefficient est compris dans l'intervalle $[-1, 1]$
 
 - Proche de 0, les variables ne sont pas linéairement liées. Cela ne veut pas dire qu'il n'existe pas de relation de type $Y = f(X)$ mais dans ce cas la fonction $f$ n'est pas linéaire.
 
+#### 2.2.3 Régression linéaire
+
+Dans un cas de corrélation linéaire (avec $r(X,Y)$ proche de 1 ou -1), il est possible de déterminer la l'équation de la droite la plus proche du nuage de points.
+
+> :bar_chart: Parenthèse Excel
+>
+> fonction `DROITEREG(Y;X)`
+
 ## 3. Statistique inférentielle
 
 L'objectif de la statistique inférentielle est de **généraliser** une observation
-réalisée sur un échantillon à l'ensemble de la population. 
+réalisée sur un échantillon à l'ensemble de la population.
+
+La démarche consiste à effectuer un test d'hypothèse à partir :
+
+- d'une ***hypothèse nulle*** $H_0$ stipulant qu'il n'existe pas de différence significative entre deux variables, à l'échelle de la population, en se basant sur une observation au sein de l'échantillon.
+
+> Le nom d'hypothèse nulle faire référence au fait que la soustraction des moyennes des deux 
+> variables étudiées est **égale à zéro**.
+
+- d'une ***hypothèse alternative*** $H_1$ pouvant prendre une des trois formes suivantes :
+    
+    - $\mu_X \neq \mu_Y$ (hypothèse _bilatérale_) 
+    - $\mu_X > \mu_Y$ (hypothèse _unilatérale_) 
+    - $\mu_X < \mu_Y$ (hypothèse _unilatérale_) 
+
+Tous les tests d'hypothèse retournent une probabilité (***p valeur***) $p$ dont la valeur va conditionner la conclusion : 
+
+- Si $p$ est inférieure à $5\%$ ($p < 0.05$) alors l'hypothèse nulle est rejetée au profit de l'hypothèse alternative. On peut donc conclure à une différence significative entre les variables X et Y à l'échelle de la population.
+
+- Si $p$ est supérieure à $5\%$ ($p > 0.05$) alors l'hypothèse nulle ne peut être rejetée au profit de l'hypothèse alternative. On peut donc conclure à une différence significative entre les variables X et Y à l'échelle de la population.
 
 ### 3.1 Test t de Student
 
-### 3.2 ANOVA
+Ce test d'hypothèse peut être utilisé pour des groupes indépendants ou appariés à
+condition que :
+- la répartition des valeurs soit **normale** (test de Shapire-Wilk)
+- les variances soient homogènes (Test de Fisher)
+
+> :bar_chart: Parenthèse Excel
+>
+> fonction `T.TEST(plage1;plage2;uni/bilatéral;type)` pour réaliser un test t de Student 
+>
+> fonction `F.TEST(plage1;plage2)` pour réaliser un test de Fisher
+
+### 3.2 Test de Mann-Whitney
+
+Ce test est à réaliser avec des groupes **indépendants** dont les valeurs ne suivent pas la 
+loi normale.
+
+### 3.3 Test de Wilcoxon
+
+Ce test est à réaliser avec des groupes **appariés** dont les valeurs ne suivent pas la 
+loi normale.
