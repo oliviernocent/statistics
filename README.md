@@ -135,7 +135,39 @@ indices de position et de dispersion.
 
 ![](img/box-whisker-chart.png)
 
+> :bar_chart: Parenthèse Excel
+>
+> Création de [boîtes à moustaches](https://fr.extendoffice.com/excel/excel-charts/excel-create-box-and-whisker-chart.html)
+
 ### 2.2 statistique bivariée
+
+Elle consiste à étudier la relation entre deux variables quantitatives.
+
+#### 2.2.1 Diagramme de dispersion
+
+Il est possible de générer un nuage points dont les coordonnées $(x_i, y_i)$
+correspondent aux valeurs des deux variables étudiées.
+
+Si le nuage de points est concentré autour d'une **droite**, on peut en déduire qu'il
+existe une **relation linéaire** (ou de proportionnalité) entre les deux variables.
+
+#### 2.2.2 Coefficient de corrélation linéaire (de Bravais-Pearson)
+
+Le coefficient de corrélation linéaire $r(X, Y)$ entre les variables $X$ et $Y$ permet de
+quantifier la **force de la relation linéaire** entre les deux variables (ou à quel point le nuage de points est **proche de la droite**). 
+$$
+r(X, Y) = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} = \frac{ \frac{1}{n} \sum_{i=1}^{n}{ (x_i - \mu_X)(y_i - \mu_Y) } }{\sigma_X \sigma_Y}
+$$
+
+Ce coefficient est compris dans l'intervalle $[-1, 1]$
+
+- Proche de 1, les variables sont linéairement liées avec une droite de pente
+ **positive** (quand la variable X augmente, la variable Y augmente aussi)
+
+- Proche de -1, les variables sont linéairement liées avec une droite de pente
+ **négative** (quand la variable X augmente, la variable Y diminue)
+
+- Proche de 0, les variables ne sont pas linéairement liées. Cela ne veut pas dire qu'il n'existe pas de relation de type $Y = f(X)$ mais dans ce cas la fonction $f$ n'est pas linéaire.
 
 ## 3. Statistique inférentielle
 
