@@ -84,7 +84,7 @@ la valeur à l'indice :
 > Pour vous en convaincre, calculez la moyenne et la médiane de la variable Age du fichier
 > [L1-STAPS.xlsx](data/L1-STAPS.xlsx) et remplacez une des valeurs par 50.
 
-Enfin, le ***quantile $Q_p$*** correspond à la valeur qui sépare les $p\%$ de la variable. Si $p=50\%$, $Q_p$ correspond à la médiane.
+Enfin, le ***quantile*** $Q_p$ correspond à la valeur qui sépare les $p\%$ de la variable. Si $p=50\%$, $Q_p$ correspond à la médiane.
 
 Les ***quartiles*** $Q_1$, $Q_2$ et $Q_3$ sont les quantiles correspondant respectivement à $25\%$, $50\%$ (médiane) et $75\%$.
 
@@ -100,6 +100,20 @@ L'***étendue*** $e$ est la différence entre les valeurs extrémales de la vari
 
 $$
 e = \max_{i}{x_i} - \min_{i}{x_i}
+$$
+
+L'***écart interquartiles*** correspond à $Q_3 - Q_1$.
+
+L'***écart type*** $\sigma$ est la racine carrée de la moyenne quadratique des écarts par rapport à la moyenne.
+
+$$
+\sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^{n}{ (x_i - \mu)^2}}
+$$
+
+Le ***coefficient de variation*** $c$ est le rapport entre l’écart-type et la moyenne, exprimé comme un pourcentage de la moyenne.
+
+$$
+c = \frac{\sigma}{\mu}
 $$
 
 #### 2.1.3 Indice de forme
