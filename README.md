@@ -84,9 +84,9 @@ la valeur à l'indice :
 > Pour vous en convaincre, calculez la moyenne et la médiane de la variable Age du fichier
 > [L1-STAPS.xlsx](data/L1-STAPS.xlsx) et remplacez une des valeurs par 50.
 
-Enfin, le ***quantile*** $Q_p$ correspond à la valeur qui sépare les $p\%$ de la variable. Si $p=50\%$, $Q_p$ correspond à la médiane.
+Enfin, le ***quantile*** $Q_p$ correspond à la valeur qui délimite les premiers $p$% de la variable. Si $p=50$%, $Q_p$ correspond à la médiane.
 
-Les ***quartiles*** $Q_1$, $Q_2$ et $Q_3$ sont les quantiles correspondant respectivement à $25\%$, $50\%$ (médiane) et $75\%$.
+Les ***quartiles*** $Q_1$, $Q_2$ et $Q_3$ sont les quantiles correspondant respectivement à $25$%, $50$% (médiane) et $75$%.
 
 > :bar_chart: Parenthèse Excel
 >
@@ -198,15 +198,15 @@ La démarche consiste à effectuer un test d'hypothèse à partir :
 
 Tous les tests d'hypothèse retournent une probabilité (***p valeur***) $p$ dont la valeur va conditionner la conclusion : 
 
-- Si $p$ est inférieure à $5\%$ ($p < 0.05$) alors l'hypothèse nulle est rejetée au profit de l'hypothèse alternative. On peut donc conclure à une différence significative entre les variables X et Y à l'échelle de la population.
+- Si $p$ est inférieure à $5$% ( $p < 0.05$ ) alors l'hypothèse nulle est rejetée au profit de l'hypothèse alternative. On peut donc conclure à une différence significative entre les variables X et Y à l'échelle de la population.
 
-- Si $p$ est supérieure à $5\%$ ($p > 0.05$) alors l'hypothèse nulle ne peut être rejetée au profit de l'hypothèse alternative. On peut donc conclure à une différence significative entre les variables X et Y à l'échelle de la population.
+- Si $p$ est supérieure à $5$% ( $p > 0.05$ ) alors l'hypothèse nulle ne peut être rejetée au profit de l'hypothèse alternative. On peut donc conclure à une différence significative entre les variables X et Y à l'échelle de la population.
 
 ### 3.1 Test t de Student
 
 Ce test d'hypothèse peut être utilisé pour des groupes indépendants ou appariés à
 condition que :
-- la répartition des valeurs soit **normale** (test de Shapire-Wilk)
+- la répartition des valeurs soit **normale** (test de Shapiro-Wilk)
 - les variances soient homogènes (Test de Fisher)
 
 > :bar_chart: Parenthèse Excel
