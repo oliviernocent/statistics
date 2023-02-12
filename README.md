@@ -63,7 +63,7 @@ Ils rendent compte de la **position** d'une variable dans l'intervalle des valeu
 La ***moyenne*** $\mu$ est la somme des valeurs divisée par leur nombre.
 
 $$
-\mu = \frac{1}{n}\sum_{i=1}^{n}{x_i}
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n}{x_i}
 $$
 
 > :bar_chart: Parenthèse Excel
@@ -109,21 +109,34 @@ $$
 
 L'***écart interquartiles*** correspond à $Q_3 - Q_1$.
 
-L'***écart type*** $\sigma$ est la racine carrée de la moyenne quadratique des écarts par rapport à la moyenne.
+L'***écart absolu moyen*** $e_m$ est la moyenne des écarts par rapport à la moyenne en valeur absolue.
 
 $$
-\sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^{n}{ (x_i - \mu)^2}}
+e_m = \frac{1}{n} \sum_{i=1}^{n}{ \lvert x_i - \bar{x} \rvert }
+$$
+
+La ***variance*** $V(x)$ est la moyenne quadratique des écarts par rapport à la moyenne.
+
+$$
+V(x) = \frac{1}{n} \sum_{i=1}^{n}{ (x_i - \bar{x})^2}
+$$
+
+L'***écart type*** $\sigma$ est la racine carrée de la variance.
+
+$$
+\sigma = \sqrt{ V(x) }
 $$
 
 Le ***coefficient de variation*** $c$ est le rapport entre l’écart-type et la moyenne, exprimé comme un pourcentage de la moyenne.
 
 $$
-c = \frac{\sigma}{\mu}
+c = \frac{\sigma}{\bar{x}}
 $$
 
-> Le coefficient de variation procède à une normalisation qui
+> L'écart type étant sensible à l'échelle des données, le coefficient
+> de variation procède à une normalisation qui
 > permet de comparer les dispersions de deux variables avec des 
-> moyennes de différents ordres de grandeur.
+> amplitudes différentes.
 
 Ainsi, un couple d’indices de position et de dispersion permet de résumer sommairement une variable quantitative.
 
@@ -153,26 +166,34 @@ existe une **relation linéaire** (ou de proportionnalité) entre les deux varia
 
 #### 2.2.2 Coefficient de corrélation linéaire (de Bravais-Pearson)
 
-Le coefficient de corrélation linéaire $r(X, Y)$ entre les variables $X$ et $Y$ permet de
+Le coefficient de corrélation linéaire $r(x, y)$ entre les variables $x$ et $y$ permet de
 quantifier la **force de la relation linéaire** entre les deux variables (ou à quel point le nuage de points est **proche de la droite**).
 
 $$
-r(X, Y) = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} = \frac{1}{n \sigma_X \sigma_Y} \sum_{i=1}^{n}{ (x_i - \mu_X)(y_i - \mu_Y) }
+r(x, y) = \frac{Cov(x, y)}{\sigma_x \sigma_y} \qquad \text{où} \qquad  Cov(x,y )= \frac{1}{n} \sum_{i=1}^{n}{ (x_i - \bar{x})(y_i - \bar{y}) }
 $$
 
 Ce coefficient est compris dans l'intervalle $[-1, 1]$
 
 - Proche de 1, les variables sont linéairement liées avec une droite de pente
- **positive** (quand la variable X augmente, la variable Y augmente aussi)
+ **positive** (quand la variable $x$ augmente, la variable $y$ augmente aussi)
 
 - Proche de -1, les variables sont linéairement liées avec une droite de pente
- **négative** (quand la variable X augmente, la variable Y diminue)
+ **négative** (quand la variable $x$ augmente, la variable $y$ diminue)
 
-- Proche de 0, les variables ne sont pas linéairement liées. Cela ne veut pas dire qu'il n'existe pas de relation de type $Y = f(X)$ mais dans ce cas la fonction $f$ n'est pas linéaire.
+- Proche de 0, les variables ne sont pas linéairement liées. Cela ne veut pas dire qu'il n'existe pas de relation de type $y = f(x)$ mais dans ce cas la fonction $f$ n'est pas linéaire.
 
 #### 2.2.3 Régression linéaire
 
-Dans un cas de corrélation linéaire (avec $r(X,Y)$ proche de 1 ou -1), il est possible de déterminer la l'équation de la droite la plus proche du nuage de points.
+Dans un cas de corrélation linéaire (avec $r(x,y)$ proche de 1 ou -1), il est possible de déterminer l'équation $y = ax + b$ de la droite la plus proche du nuage de points.
+
+$$
+a = \frac{Cov(x,y)}{V(x)}
+$$
+
+$$
+b = \bar{y} - a \bar{x}
+$$
 
 > :bar_chart: Parenthèse Excel
 >
@@ -188,39 +209,50 @@ La démarche consiste à effectuer un test d'hypothèse à partir :
 - d'une ***hypothèse nulle*** $H_0$ stipulant qu'il n'existe pas de différence significative entre deux variables, à l'échelle de la population, en se basant sur une observation au sein de l'échantillon.
 
 > Le nom d'hypothèse nulle faire référence au fait que la soustraction des moyennes des deux 
-> variables étudiées est **égale à zéro**.
+> variables étudiées est **égale à zéro** ( $\mu_x - \mu_y = 0$ ).
 
 - d'une ***hypothèse alternative*** $H_1$ pouvant prendre une des trois formes suivantes :
     
-    - $\mu_X \neq \mu_Y$ (hypothèse _bilatérale_) 
-    - $\mu_X > \mu_Y$ (hypothèse _unilatérale_) 
-    - $\mu_X < \mu_Y$ (hypothèse _unilatérale_) 
+    - $\mu_x \neq \mu_y$ (hypothèse _bilatérale_) 
+    - $\mu_x > \mu_y$ (hypothèse _unilatérale_) 
+    - $\mu_x < \mu_y$ (hypothèse _unilatérale_) 
 
 Tous les tests d'hypothèse retournent une probabilité (***p valeur***) $p$ dont la valeur va conditionner la conclusion : 
 
-- Si $p$ est inférieure à $5$% ( $p < 0.05$ ) alors l'hypothèse nulle est rejetée au profit de l'hypothèse alternative. On peut donc conclure à une différence significative entre les variables X et Y à l'échelle de la population.
+- Si $p$ est inférieure à $5$% ( $p < 0.05$ ) alors l'hypothèse nulle est rejetée au profit de l'hypothèse alternative. On peut donc conclure à une ***différence significative*** entre les variables $x$ et $y$ à l'échelle de la population.
 
-- Si $p$ est supérieure à $5$% ( $p > 0.05$ ) alors l'hypothèse nulle ne peut être rejetée au profit de l'hypothèse alternative. On peut donc conclure à une différence significative entre les variables X et Y à l'échelle de la population.
+- Si $p$ est supérieure à $5$% ( $p > 0.05$ ) alors l'hypothèse nulle ne peut être rejetée au profit de l'hypothèse alternative. La différences des moyennes des variables $x$ et $y$ ***n'est pas significative*** à l'échelle de la population.
 
-### 3.1 Test t de Student
+### 3.1 Test de Student
 
-Ce test d'hypothèse peut être utilisé pour des groupes indépendants ou appariés à
-condition que :
-- la répartition des valeurs soit **normale** (test de Shapiro-Wilk)
-- les variances soient homogènes (Test de Fisher)
+Ce test d'hypothèse ***paramétrique*** peut être utilisé pour des groupes indépendants
+ou appariés à condition que :
+- la répartition de chaque variable soit **normale** (test de Shapiro-Wilk)
+- les variances soient **égales** (Test de Fisher)
+
+![](img/t-test-diagram.png)
+
+Source : Statistical Tools For High-Throughput Data Analysis (http://www.sthda.com)
 
 > :bar_chart: Parenthèse Excel
 >
-> fonction `T.TEST(plage1;plage2;uni/bilatéral;type)` pour réaliser un test t de Student 
+> Il n'existe pas de fonction Excel pour réaliser un test de Shapiro-Wilk mais on trouve
+> facilement des versions en [ligne](http://sthda.com/french/rsthda/shapiro-wilk.php). 
 >
 > fonction `F.TEST(plage1;plage2)` pour réaliser un test de Fisher
+>
+> fonction `T.TEST(plage1;plage2;uni/bilatéral;type)` pour réaliser un test t de Student 
+>
+> | `type` | description                     |
+> |:------:|---------------------------------|
+> |  1     | données appariées               |
+> |  2     | données avec variances égales   |
+> |  3     | données avec variances inégales |
 
-### 3.2 Test de Mann-Whitney
+### 3.2 Test de Mann-Whitney-Wilcoxon
 
-Ce test est à réaliser avec des groupes **indépendants** dont les valeurs ne suivent pas la 
-loi normale.
+Ce test ***non paramétrique*** est à réaliser avec des groupes **indépendants** dont les valeurs ne suivent pas la loi normale.
 
-### 3.3 Test de Wilcoxon
-
-Ce test est à réaliser avec des groupes **appariés** dont les valeurs ne suivent pas la 
-loi normale.
+> :bar_chart: Parenthèse Excel
+>
+> Comme pour le test de Shapiro-Wilk, il n'existe pas de fonction Excel pour réaliser un test non paramétrique mais on trouve facilement des calculateurs en [ligne](https://www.socscistatistics.com/tests/mannwhitney/default2.aspx).
