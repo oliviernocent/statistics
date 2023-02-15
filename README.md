@@ -204,30 +204,47 @@ $$
 L'objectif de la statistique inférentielle est de **généraliser** une observation
 réalisée sur un échantillon à l'ensemble de la population.
 
-La démarche consiste à effectuer un test d'hypothèse à partir :
+La démarche consiste à formuler les hypothèses de recherche :
 
-- d'une ***hypothèse nulle*** $H_0$ stipulant qu'il n'existe pas de différence significative entre deux variables, à l'échelle de la population, en se basant sur une observation au sein de l'échantillon.
+- une ***hypothèse nulle*** $H_0$ stipulant qu'il n'existe pas de différence significative entre deux variables à l'échelle de la population.
 
 > Le nom d'hypothèse nulle faire référence au fait que la soustraction des moyennes des deux 
 > variables étudiées est **égale à zéro** ( $\mu_x - \mu_y = 0$ ).
 
-- d'une ***hypothèse alternative*** $H_1$ pouvant prendre une des trois formes suivantes :
+- une ***hypothèse alternative*** $H_1$ pouvant prendre une des trois formes suivantes :
     
     - $\mu_x \neq \mu_y$ (hypothèse _bilatérale_) 
     - $\mu_x > \mu_y$ (hypothèse _unilatérale_) 
     - $\mu_x < \mu_y$ (hypothèse _unilatérale_) 
 
-Tous les tests d'hypothèse retournent une probabilité (***p valeur***) $p$ dont la valeur va conditionner la conclusion : 
+> Pour une hypothèse unilatérale, le choix du sens de l'inégalité est dicté
+> par la tendance observée au sein de l'échantillon.
 
-- Si $p$ est inférieure à $5$% ( $p < 0.05$ ) alors l'hypothèse nulle est rejetée au profit de l'hypothèse alternative. On peut donc conclure à une ***différence significative*** entre les variables $x$ et $y$ à l'échelle de la population.
+Le test statistique (choisi en fonction de la nature des données) retourne une ***p valeur*** $p$ qui correspond à la probabilité de réalisation de l'observation sachant que l'hypothèse nulle $H_0$ est vraie.
 
-- Si $p$ est supérieure à $5$% ( $p > 0.05$ ) alors l'hypothèse nulle ne peut être rejetée au profit de l'hypothèse alternative. La différences des moyennes des variables $x$ et $y$ ***n'est pas significative*** à l'échelle de la population.
+$$
+p = \mathbb{P}(x \mid H_0)
+$$
+
+### Interprétation de la p valeur $p$
+
+- Si $p$ est inférieure à $5$% ( $p < 0.05$ ) alors la probabilité de
+ rejeter l'hypothèse $H_0$ par erreur est quasiment nulle. On peut alors 
+ rejeter $H_0$ au profit de l'hypothèse alternative $H_1$ et conclure à une 
+ ***différence statistiquement significative*** entre les variables $x$ et
+  $y$ à l'échelle de la population.
+
+- Si $p$ est supérieure ou égale à $5$% ( $p \geq 0.05$ ) alors 
+l'hypothèse nulle ne peut être rejetée au profit de l'hypothèse 
+alternative. Dans ces conditions, on ne peut tirer ***aucune conclusion*** à l'échelle de la population au vu des données de l'échantillon.
+
+> ATTENTION ! On ne peut jamais valider $H_0$. 
 
 ### 3.1 Test de Student
 
 Ce test d'hypothèse ***paramétrique*** peut être utilisé pour des groupes indépendants
 ou appariés à condition que :
-- la répartition de chaque variable soit **normale** (test de Shapiro-Wilk)
+- la distribution de chaque variable soit **normale** (test de Shapiro-Wilk)
 - les variances soient **égales** (Test de Fisher)
 
 ![](img/t-test-diagram.png)
@@ -237,22 +254,27 @@ Source : Statistical Tools For High-Throughput Data Analysis (http://www.sthda.c
 > :bar_chart: Parenthèse Excel
 >
 > Il n'existe pas de fonction Excel pour réaliser un test de Shapiro-Wilk mais on trouve
-> facilement des versions en [ligne](http://sthda.com/french/rsthda/shapiro-wilk.php). 
+> facilement des versions en [ligne](http://sthda.com/french/rsthda/shapiro-wilk.php). Une version au format Excel est aussi télécheargeable sur le site [Anastats](https://www.anastats.fr/telechargements/).
+>
 >
 > fonction `F.TEST(plage1;plage2)` pour réaliser un test de Fisher
 >
-> fonction `T.TEST(plage1;plage2;uni/bilatéral;type)` pour réaliser un test t de Student 
+> fonction `T.TEST(plage1;plage2;uni/bilatéral;type)` pour réaliser un test de Student 
 >
 > | `type` | description                     |
 > |:------:|---------------------------------|
 > |  1     | données appariées               |
 > |  2     | données avec variances égales   |
 > |  3     | données avec variances inégales |
+>
+> La fonction Excel `T.TEST` permet d'effectuer un test de Student même si
+> les variances ne sont pas égales, à condition de choisir judicieusement
+> le paramètre `type`.
 
-### 3.2 Test de Mann-Whitney-Wilcoxon
+### 3.2 Test de Mann-Whitney
 
 Ce test ***non paramétrique*** est à réaliser avec des groupes **indépendants** dont les valeurs ne suivent pas la loi normale.
 
 > :bar_chart: Parenthèse Excel
 >
-> Comme pour le test de Shapiro-Wilk, il n'existe pas de fonction Excel pour réaliser un test non paramétrique mais on trouve facilement des calculateurs en [ligne](https://www.socscistatistics.com/tests/mannwhitney/default2.aspx).
+> Comme pour le test de Shapiro-Wilk, il n'existe pas de fonction Excel pour réaliser un test non paramétrique mais on trouve facilement des calculateurs en [ligne](https://www.socscistatistics.com/tests/mannwhitney/default2.aspx). Une version au format Excel est aussi télécheargeable sur le site [Anastats](https://www.anastats.fr/telechargements/).
