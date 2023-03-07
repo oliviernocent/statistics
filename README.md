@@ -140,7 +140,7 @@ $$
 
 Ainsi, un couple d’indices de position et de dispersion permet de résumer sommairement une variable quantitative.
 
-#### 2.1.3 Boîte à moustache
+#### 2.1.3 Boîte à moustaches
 
 Il est courant d'utiliser une représentation graphique pour décrire une variable
 quantitative. [La boîte à moustaches](https://fr.wikipedia.org/wiki/Bo%C3%AEte_%C3%A0_moustaches) (ou boîte de Tukey) permet de fusionner plusieurs
@@ -204,7 +204,7 @@ $$
 L'objectif de la statistique inférentielle est de **généraliser** une observation
 réalisée sur un échantillon à l'ensemble de la population.
 
-La démarche consiste à formuler les hypothèses de recherche :
+La démarche consiste à formuler deux hypothèses de recherche :
 
 - une ***hypothèse nulle*** $H_0$ stipulant qu'il n'existe pas de différence significative entre deux variables à l'échelle de la population.
 
@@ -214,8 +214,8 @@ La démarche consiste à formuler les hypothèses de recherche :
 - une ***hypothèse alternative*** $H_1$ pouvant prendre une des trois formes suivantes :
     
     - $\mu_x \neq \mu_y$ (hypothèse _bilatérale_) 
-    - $\mu_x > \mu_y$ (hypothèse _unilatérale_) 
-    - $\mu_x < \mu_y$ (hypothèse _unilatérale_) 
+    - $\mu_x > \mu_y$ (hypothèse _unilatérale à droite_) 
+    - $\mu_x < \mu_y$ (hypothèse _unilatérale à gauche_) 
 
 > Pour une hypothèse unilatérale, le choix du sens de l'inégalité est dicté
 > par la tendance observée au sein de l'échantillon.
@@ -260,6 +260,9 @@ Source : Statistical Tools For High-Throughput Data Analysis (http://www.sthda.c
 > fonction `F.TEST(plage1;plage2)` pour réaliser un test de Fisher
 >
 > fonction `T.TEST(plage1;plage2;uni/bilatéral;type)` pour réaliser un test de Student 
+>
+> Dans le cas d'un test unilatéral, la fonction Excel s'appuie sur une hypothèse unilatérale à droite. La `plage1` doit
+> donc correspondre au sous-échantillon avec la moyenne la plus élevée.
 >
 > | `type` | description                     |
 > |:------:|---------------------------------|
