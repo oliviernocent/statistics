@@ -58,7 +58,7 @@ variable unique peut ainsi être résumée par des indices de natures différent
 
 #### 2.1.1 Indices de position
 
-Ils rendent compte de la **position** d'une variable dans l'intervalle des valeurs autorisées.
+Ils rendent compte de la **position centrale** d'une variable dans l'intervalle des valeurs autorisées.
 
 La ***moyenne*** $\mu$ est la somme des valeurs divisée par leur nombre.
 
@@ -94,7 +94,7 @@ Les ***quartiles*** $Q_1$, $Q_2$ et $Q_3$ sont les quantiles correspondant respe
 
 #### 2.1.2 Indices de dispersion
 
-Ils rendent compte de **l'étalement** des valeurs autour de la moyenne (ou de la médiane).
+Ils rendent compte de **l'étalement** des valeurs autour de la valeur centrale (moyenne ou médiane).
 
 L'***étendue*** $e$ est la différence entre les valeurs extrémales de la variable.
 
@@ -226,7 +226,7 @@ $$
 p = \mathbb{P}(x \mid H_0)
 $$
 
-### Interprétation de la p valeur $p$
+### Interprétation de la p valeur
 
 - Si $p$ est inférieure à $5$% ( $p < 0.05$ ) alors la probabilité de
  rejeter l'hypothèse $H_0$ par erreur est quasiment nulle. On peut alors 
